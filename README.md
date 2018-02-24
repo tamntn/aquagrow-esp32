@@ -1,1 +1,3 @@
-# sp-esp32
+# AquaGrow - ESP32 Source Code
+
+## Contributor: Sandip Gautam
