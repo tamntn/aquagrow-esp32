@@ -2,14 +2,12 @@
 #include <WiFi.h>
 #include "DHT.h"
 
-// Uncomment one of the lines below for whatever DHT sensor type you're using!
-//#define DHTTYPE DHT11   // DHT 11
-//#define DHTTYPE DHT21   // DHT 21 (AM2301)
-#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
-// Replace with your network credentials
-const char* ssid     = "Thunderdome 2.0";
-//const char* password = "guitar54";
+#define DHTTYPE DHT22 
+
+
+const char* ssid     = "XXXXXXXX";
+const char* password = "XXXXXXXX";
 String payload;
 
 WiFiServer server(80);
@@ -40,7 +38,7 @@ void setup() {
   Serial.print("Connecting to ");
   Serial.println(ssid);
   
-  WiFi.begin("Thunderdome 2.0","guitar54" );
+  WiFi.begin(ssid,password);
   
   while(WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -58,8 +56,8 @@ void loop() {
   WiFiClient client = server.available();
   if (client) {
     HTTPClient http;
-    http.begin("https://api-test-sensor.herokuapp.com/api/sensors");  //Specify destination for HTTP request
-   http.addHeader("Content-Type", "application/json");             //Specify content-type header
+    http.begin("https://api-test-sensor.herokuapp.com/api/sensors"); 
+   http.addHeader("Content-Type", "application/json");            
      Serial.println("new client");
     memset(linebuf,0,sizeof(linebuf));
     charcount=0;
@@ -73,9 +71,7 @@ void loop() {
         if (c == '\n' && currentLineIsBlank) {
             float h = dht.readHumidity();
             float t = dht.readTemperature();
-            // Read temperature as Fahrenheit (isFahrenheit = true)
             float f = dht.readTemperature(true);
-            // Check if any reads failed and exit early (to try again).
             if (isnan(h) || isnan(t) || isnan(f)) {
               Serial.println("Failed to read from DHT sensor!");
               strcpy(celsiusTemp,"Failed");
@@ -83,13 +79,13 @@ void loop() {
               strcpy(humidityTemp, "Failed");         
             }
             else{
-              // Computes temperature values in Celsius + Fahrenheit and Humidity
               float hic = dht.computeHeatIndex(t, h, false);       
               dtostrf(hic, 6, 2, celsiusTemp);             
               float hif = dht.computeHeatIndex(f, h);
               dtostrf(hif, 6, 2, fahrenheitTemp);         
               dtostrf(h, 6, 2, humidityTemp);
-              // You can delete the following Serial.print's, it's just for debugging purposes
+              // Serial print for debugging purpose
+		/*
               Serial.print("Humidity: ");
               Serial.print(h);
               Serial.print(" %\t Temperature: ");
@@ -112,17 +108,18 @@ void loop() {
               Serial.print(" *C ");
               Serial.print(hic);
               Serial.println(" *F");
+		*/
               payload += '{';
               payload+= "\"temp\": ";
               payload +=  String(hic) +" ,";
               payload += "\"humidity\": ";
               payload += String(h) + "}";
               Serial.println(payload);
-              int httpResponseCode = http.POST(payload);   //Send the actual POST request
+              int httpResponseCode = http.POST(payload);   
  
    if(httpResponseCode>0){
  
-    String response = http.getString();                       //Get the response to the request
+    String response = http.getString();                       
  
     Serial.println(httpResponseCode);   //Print return code
     Serial.println(response);           //Print request answer
@@ -137,7 +134,7 @@ void loop() {
           // send a standard http response header
           client.println("HTTP/1.1 200 OK");
           client.println("Content-Type: text/html");
-          client.println("Connection: close");  // the connection will be closed after completion of the response
+          client.println("Connection: close"); 
           client.println();
           client.println("<!DOCTYPE HTML><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
           client.println("<meta http-equiv=\"refresh\" content=\"30\"></head>");
@@ -178,9 +175,6 @@ void loop() {
     //client.stop();
     //Serial.println("client disconnected");
   }
-}
-void send(){
-  
 }
 
 
