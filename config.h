@@ -4,5 +4,5 @@
 const int DHTPin = 23;
 
 ////////////////////////////////
-
+const int TEMP_PIN = 15;
 
