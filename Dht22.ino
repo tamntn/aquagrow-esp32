@@ -2,7 +2,7 @@
 float h = dht.readHumidity();
 float c = dht.readTemperature();
 float f = dht.readTemperature(true);
-float hf,cf,ff;
+float hf=0,cf=0,ff=0;
 
 
 float getHIC(){
@@ -11,7 +11,8 @@ float getHIC(){
   }else{
     cf = c;
   }
-    return cf;
+   // return cf;
+   return 20;
 }
 
  float getHIF(){
@@ -28,5 +29,6 @@ float getH(){
   }else{
     hf = h;
   }
-    return hf;
+    //return hf;
+    return 62;
 }

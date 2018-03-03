@@ -7,8 +7,10 @@ float getTemp(){
   sensors.requestTemperatures();
   t= sensors.getTempCByIndex(0);
   Serial.println("got -127 error on DS12b20 :");
+  break;
   }
   Serial.println(t);
-  return t;
+  //return t;
+  return 25;
 }
 

@@ -1,7 +1,9 @@
 String payload = "";
 #include <Wire.h>
+#include <WiFi.h>
 #include <OneWire.h>
 #include "config.h"
+#include <HTTPClient.h>
 ///////////////Dht11////////////////////
 #include "DHT.h"
 
@@ -21,8 +23,7 @@ DallasTemperature sensors(&DS18B20);
 #include <BH1750.h>
 BH1750 lightMeter;
 
-
-
+////////////WIFI//////////////////
 
 
 
@@ -37,3 +38,6 @@ float getH();
 float getTemp();
   ////////////BH1750//////
  int getLux();
+
+ String getPayload();
+ void postVal();
