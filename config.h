@@ -7,9 +7,14 @@ const int DHTPin = 23;
 const int TEMP_PIN = 15;
 
 ////////////////////////////////
+const int pH_Pump = 15;
+/////////////////////////////////
 
 const char* ssid     = "XXXXXX";
 const char* password = "XXXXXXX";
 
 /////////////////////////////////
 const int post_interval = 10000;
+
+/////////////////////////////////
+const char* url = "http://aquagrow.herokuapp.com/api/sensors";

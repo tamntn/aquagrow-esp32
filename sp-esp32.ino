@@ -4,6 +4,7 @@ String payload = "";
 #include <OneWire.h>
 #include "config.h"
 #include <HTTPClient.h>
+#include <string.h>
 ///////////////Dht11////////////////////
 #include "DHT.h"
 
@@ -22,6 +23,14 @@ DallasTemperature sensors(&DS18B20);
 ////////////BH1750///////////////////
 #include <BH1750.h>
 BH1750 lightMeter;
+
+///////////pH///////////////////////
+HardwareSerial Serial2(2);        //UART port for pH sensor
+boolean input_string_complete = false;
+String inputstring = "";                              
+String sensorstring = "";                             
+//inputstring.reserve(10);                            
+//sensorstring.reserve(30);                           
 
 ////////////WIFI//////////////////
 

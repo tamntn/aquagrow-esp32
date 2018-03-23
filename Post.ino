@@ -15,7 +15,7 @@ void postVal() {
 
     HTTPClient http;
     Serial.println("Posting Value");
-    http.begin("http://aquagrow.herokuapp.com/api/sensors");
+    http.begin(url);
     http.addHeader("Content-Type", "application/json");
     int httpResponseCode = http.POST(getPayload());
 
