@@ -16,7 +16,11 @@ void setup() {
   lightMeter.begin();
   Serial.println("Done");
   delay(50);
-  pinMode(pH_Pump, OUTPUT);
+  pinMode(pH_Pump_A, OUTPUT);
+  pinMode(pH_Pump_B, OUTPUT);
+  pinMode(heatingMat, OUTPUT);
+  pinMode(pump, OUTPUT);
+  pinMode(levelSensor1, INPUT);
   Serial.println("Now connecting to wifi");
   delay(4000);
   Serial.println("Connecting");
@@ -25,7 +29,9 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  ledcSetup(channel, freq, resolution);
-  ledcAttachPin(pH_Pump, channel);
+  ledcSetup(channelA, freq, resolution);
+  ledcSetup(channelB, freq, resolution);
+  ledcAttachPin(pH_Pump_A, channelA);
+  ledcAttachPin(pH_Pump_B, channelB);
   
 }

@@ -7,15 +7,15 @@
 - ✅ Atmospheric Temperature & Humidity 
 - ✅ Ambient Light Sensor
 - ✅ Water Temperature
-- 🔜 pH Sensor
-- 🔜 2 Water Sensors
+- ✅ pH Sensor
+- ✅ 2 Water Level Sensors
 - 🔜 Electrical Conductivity
 ### CONTROL
 - ✅ Growing Light ON/OFF
 - 🔜 Growing Light Intensity
-- 🔜 Water Pump
-- 🔜 2 pH Pumps
-- 🔜 Heating Mat
+- ✅ Water Pump
+- ✅ 2 pH Pumps
+- ✅ Heating Mat
 
 ## Meetings:
 - [x] 2/24: Successfully tested some sensors and use HTTP POST to send data to the API
