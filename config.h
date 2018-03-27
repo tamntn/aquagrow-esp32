@@ -26,4 +26,8 @@ const char* password = "XXXXXXX";
 const int post_interval = 10000;
 
 /////////////////////////////////
-const char* url = "http://aquagrow.herokuapp.com/api/sensors";
+const char* pUrl = "http://aquagrow.herokuapp.com/api/sensors";
+const char* gUrl = "https://aquagrow.herokuapp.com/api/system/tamntn";
+
+///////////////////////////////////
+

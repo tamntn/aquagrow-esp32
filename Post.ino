@@ -13,23 +13,23 @@ payload = "";
 void postVal() {
   if (WiFi.status() == WL_CONNECTED) { //Check WiFi connection status
 
-    HTTPClient http;
+    HTTPClient httpP;
     Serial.println("Posting Value");
-    http.begin(url);
-    http.addHeader("Content-Type", "application/json");
-    int httpResponseCode = http.POST(getPayload());
+    httpP.begin(pUrl);
+    httpP.addHeader("Content-Type", "application/json");
+    int httpPResponseCode = httpP.POST(getPayload());
 
-    if (httpResponseCode > 0) {
-      String response = http.getString();
-      Serial.println(httpResponseCode);
+    if (httpPResponseCode > 0) {
+      String response = httpP.getString();
+      Serial.println(httpPResponseCode);
       Serial.println(response);
 
     } else {
 
       Serial.print("Error on sending POST: ");
-      Serial.println(httpResponseCode);
+      Serial.println(httpPResponseCode);
     }
-    http.end();
+    httpP.end();
   } else {
     Serial.println("Error in WiFi connection");
   }
