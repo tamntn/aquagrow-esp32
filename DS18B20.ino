@@ -1,16 +1,5 @@
-float t;
-float getTemp(){
-  
+void getDS(void){
   sensors.requestTemperatures();
-  t= sensors.getTempCByIndex(0);
-  while(t=-127.00){
-  sensors.requestTemperatures();
-  t= sensors.getTempCByIndex(0);
-  Serial.println("got -127 error on DS12b20 :");
-  break;
-  }
-  Serial.println(t);
-  //return t;
-  return 25;
+  wTemp = (sensors.getTempCByIndex(0));
 }
 

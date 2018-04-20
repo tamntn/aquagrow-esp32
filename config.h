@@ -1,33 +1,17 @@
-///////////Dht22/////////////////
+#define ONE_WIRE_BUS 5
+const int dhtPin = 19;
 
-#define DHTTYPE DHT11 
-const int DHTPin = 23;
+const int pH_Pump_A = 33; 
+const int pH_Pump_B = 25; 
+const int heatingMat = 13;
+const int pump = 14; 
+const int light = 12;
+const int levelSensorB = 18;
+const int levelSensorG = 34 ;
 
-////////////////////////////////
-const int TEMP_PIN = 15;
+const char* ssid = "MegaMind";
+const char* password = "18kabungaharu";
 
-////////////////////////////////
-const int pH_Pump_A = 16;
-const int pH_Pump_B = 17;
-/////////////////////////////////
-const int heatingMat = 18;
-const int pump = 19;
-
-///////////////////////////
-const int levelSensor1 = 20;
-
-
-///////////////////////////
-
-const char* ssid     = "XXXXXX";
-const char* password = "XXXXXXX";
-
-/////////////////////////////////
-const int post_interval = 10000;
-
-/////////////////////////////////
-const char* pUrl = "http://aquagrow.herokuapp.com/api/sensors";
-const char* gUrl = "https://aquagrow.herokuapp.com/api/system/tamntn";
-
-///////////////////////////////////
+const char* pUrl = "https://aquagrow.life/api/sensors/5acc5bd49c3ec60014af3589";
+const char* gUrl =  "https://aquagrow.life/api/system/tamntn";
 

@@ -1,13 +1,14 @@
-String getPayload() {
-payload+="{";
-payload += "\"airTemp\": \"" + String(getHIC())+ "\",";
-payload += "\"airHumidity\": \"" + String(getH())+ "\" ,";
-payload += "\"lightIntensity\":\"" + String(getLux())+"\" ,";
-payload += "\"waterTemp\":\"" + String(getTemp())+ "\"";
-payload+="}";
-Serial.println(payload);
-return payload;
-payload = "";
+void setPayload(){
+  payload = "";
+  payload+="{";
+  payload += "\"airTemp\": \"" + (String)aTemp + "\" ,";
+  payload += "\"airHumidity\": \"" + (String)hum + "\" ,";
+  payload += "\"lightIntensity\":\"" + (String)lux +"\" ,";
+  payload += "\"waterTemp\":\"" + (String)wTemp + "\" ,";
+  payload += "\"upperWaterLevel\":\"" + (String)uWaterL + "\" ,";
+  payload += "\"lowerWaterLevel\":\"" + (String)lWaterL+ "\" ,";
+  payload += "\"pH\":\"" + (String)pH + "\"";
+  payload+="}";
 }
 
 void postVal() {
@@ -17,13 +18,13 @@ void postVal() {
     Serial.println("Posting Value");
     httpP.begin(pUrl);
     httpP.addHeader("Content-Type", "application/json");
-    int httpPResponseCode = httpP.POST(getPayload());
+    int httpPResponseCode = httpP.POST(payload);
 
     if (httpPResponseCode > 0) {
       String response = httpP.getString();
       Serial.println(httpPResponseCode);
       Serial.println(response);
-
+     
     } else {
 
       Serial.print("Error on sending POST: ");

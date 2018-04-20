@@ -1,7 +1,5 @@
-uint16_t lux;
-int getLux(){
+void getBH(void){
+  delay(50);
   lux = lightMeter.readLightLevel();
-  //return lux;
-  return 200;
 }
 
