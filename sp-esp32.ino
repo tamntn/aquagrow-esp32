@@ -32,11 +32,11 @@ int resolution = 8;
 
 //////////////////////////////////////////////////
 String command="";
-String wPumpStatus = "false";
-String lightStatus = "false";
-String heatStatus = "false";
-String hPumpStatus = "false";
-String ohPumpStatus = "false";
+int wPumpStatus =0;
+int lightStatus = 0;
+int heatStatus = 0;
+int hPumpStatus = 0;
+int ohPumpStatus = 0;
 String wPumpInt = "0";
 String lightInt = "0";
 ////////////////////////////////////////////////

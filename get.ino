@@ -21,6 +21,7 @@ void getCom() {
 }
 
 void parseC(){
+
   Serial.println("Parsing started");
   StaticJsonBuffer<1500> JSONBuffer;
   JsonObject& parsed = JSONBuffer.parseObject(command);
@@ -31,20 +32,22 @@ void parseC(){
   }else{
     Serial.println("Successfully Parsed");
   }
-bool wPumpStatus = parsed["Data"]["waterPump"];
-bool lightStatus = parsed["Data"]["growLight"];
-bool heatStatus = parsed["Data"]["heatingMat"];
-bool hPumpStatus = parsed["Data"]["phPumpLow"];
-bool ohPumpStatus = parsed["Data"]["phPumpHigh"];
+wPumpStatus = parsed["data"]["waterPump"];
+lightStatus = parsed["data"]["growLight"];
+heatStatus = parsed["data"]["heatingMat"];
+ohPumpStatus = parsed["data"]["phPumpHigh"];
+hPumpStatus = parsed["data"]["phPumpLow"];
 //int wPumpInt = parsed["Data"]["waterPumpInt"];
 //int lightInt = parsed["Data"]["waterPumpInt"];
+delay(50);
+
 }
 void printC(){
-  Serial.println("Water Pump Status = " +  wPumpStatus);
- Serial.println("Grow Light Status = " + lightStatus);
- Serial.println("Heating mat Status = " + heatStatus );
- Serial.println("H+ Pump Status = " + hPumpStatus);
- Serial.println("OH- Pump Status = " + ohPumpStatus);
+  Serial.println("Water Pump Status = " +  (String)wPumpStatus);
+ Serial.println("Grow Light Status = " + (String)lightStatus);
+ Serial.println("Heating mat Status = " + (String)heatStatus );
+ Serial.println("H+ Pump Status = " + (String)hPumpStatus);
+ Serial.println("OH- Pump Status = " + (String)ohPumpStatus);
 // Serial.println("Water Pump Speed = " + wPumpInt );
 // Serial.println("Grow light internsity = " + lightInt );
 }

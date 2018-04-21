@@ -9,8 +9,8 @@ const int light = 12;
 const int levelSensorB = 18;
 const int levelSensorG = 34 ;
 
-const char* ssid = "MegaMind";
-const char* password = "18kabungaharu";
+const char* ssid = "TP-LINK_6D7E";
+const char* password = "63229523";
 
 const char* pUrl = "https://aquagrow.life/api/sensors/5acc5bd49c3ec60014af3589";
 const char* gUrl =  "https://aquagrow.life/api/system/tamntn";
