@@ -1,5 +1,5 @@
 void setup(){
-  Serial.println("Setting pH pump");
+ // Serial.println("Setting pH pump");
 ledcSetup(1, freq, resolution);
 ledcAttachPin(pH_Pump_A, 1);
 setpHPumpA(0);

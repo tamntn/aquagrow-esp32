@@ -19,8 +19,11 @@ void loop() {
   delay(100);
   getCom();
   delay(50);
+  if (getErrorCount==0){
   parseC();
   delay(50);
+  }
+  failSafe();
   //printC();
   //delay(5000);
   setPump(wPumpStatus);

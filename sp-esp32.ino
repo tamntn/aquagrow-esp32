@@ -34,6 +34,7 @@ int resolution = 8;
 String sensorstring = "";                             
 boolean sensor_stringcomplete = false;
 
+
 int getErrorCount = 0;
 //////////////////////////////////////////////////
 String command="";

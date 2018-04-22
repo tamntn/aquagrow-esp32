@@ -9,8 +9,8 @@ void getCom() {
       command = httpG.getString();
       Serial.println(httpGResponseCode);
     } else {
-
-      Serial.print("Error on getting command");
+      getErrorCount++;
+      Serial.print("Error on getting command count = " + (String)getErrorCount);
       Serial.println(httpGResponseCode);
     }
     httpG.end();
@@ -30,6 +30,7 @@ void parseC(){
     delay(50);
     return;
   }else{
+    getErrorCount=0;
     Serial.println("Successfully Parsed");
 wPumpStatus = parsed["data"]["waterPump"];
 lightStatus = parsed["data"]["growLight"];
