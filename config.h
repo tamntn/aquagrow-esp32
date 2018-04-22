@@ -2,7 +2,7 @@
 const int dhtPin = 19;
 
 const int pH_Pump_A = 33; 
-const int pH_Pump_B = 25; 
+const int pH_Pump_B = 25;  
 const int heatingMat = 13;
 const int pump = 14; 
 const int light = 12;

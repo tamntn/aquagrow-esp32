@@ -21,15 +21,20 @@ BH1750 lightMeter;
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 
-
-float lux, wTemp, aTemp, hum, pH;
+HardwareSerial Serial2(2);    
+float lux, wTemp, aTemp, hum;
+float pH = 7;
+//String pH ="";
 String uWaterL = "false";
 String lWaterL = "false";
 String payload;
 int freq = 5000;
 int ledChannel = 0;
 int resolution = 8;
+String sensorstring = "";                             
+boolean sensor_stringcomplete = false;
 
+int getErrorCount = 0;
 //////////////////////////////////////////////////
 String command="";
 int wPumpStatus =0;

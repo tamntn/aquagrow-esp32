@@ -31,7 +31,6 @@ void parseC(){
     return;
   }else{
     Serial.println("Successfully Parsed");
-  }
 wPumpStatus = parsed["data"]["waterPump"];
 lightStatus = parsed["data"]["growLight"];
 heatStatus = parsed["data"]["heatingMat"];
@@ -40,6 +39,8 @@ hPumpStatus = parsed["data"]["phPumpLow"];
 //int wPumpInt = parsed["Data"]["waterPumpInt"];
 //int lightInt = parsed["Data"]["waterPumpInt"];
 delay(50);
+  }
+
 
 }
 void printC(){

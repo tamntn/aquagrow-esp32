@@ -5,6 +5,8 @@ void loop() {
   getDS();
   getBH();
   getLevel();
+  getPh();
+  sensorstring = "";
   setPayload();
   delay(100);
   Serial.println(payload);
